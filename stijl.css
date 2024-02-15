@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap')
+
 body, html {
     margin: 0;
     padding: 0;
@@ -6,6 +6,7 @@ body, html {
     background-image: linear-gradient(#44b17b, #a6ddbf);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    flex-wrap: wrap;
 }
 
 header {
@@ -50,6 +51,30 @@ nav ul li a:hover {
     text-decoration: underline;
     color: #44b17b;
 }
+.dropdown {
+    position: relative;
+    display: inline-block;
+    display: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 .logo {
     width: 100px; /* Aanpassen aan de werkelijke grootte van het logo */
@@ -87,6 +112,7 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+    color: #44b17b;
 }
 .footer{
     margin-top: 100px;
@@ -228,3 +254,73 @@ tr:hover {
 .toevoegen:hover {
     background-color: #a6ddbf;
 }
+
+.over{
+    padding: 20px;
+    margin: 20px 20%
+}
+.box{
+    height: 57vh;
+    background-image: url(https://www.scooterkoning.com/wp-content/uploads/2023/02/banner-beter.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 60px;
+    width: 100%;
+    overflow-y: auto;
+   
+    
+    
+}
+.home
+    {
+        font-family: "Protest Strike", sans-serif;
+        background-color: rgba(255, 255, 255, 0.3);
+        color: rgb(14, 11, 11);
+        text-align: center;
+        padding-top: 20px;
+        font-size: 30px;
+        width: 50%;
+        margin:0 auto;
+        border-radius: 20px;
+        
+
+    }
+    .home h1{
+        font-size: 30px;
+    }
+    
+
+
+    .home a {
+        display: block;
+    width: 200px;
+    padding: 10px;
+    background-color: #44b17b;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 auto;
+    }
+    
+
+
+
+    @media only screen and (max-width: 668px) {
+        .dropdown {
+            position: relative;
+            display: inline-block;
+    
+        }
+        li{
+            display: none;
+        }
+        .h{
+            display: initial;
+        }
+
+
+
+
+    }
