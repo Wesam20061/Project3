@@ -47,11 +47,14 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
+    color: #44b17b;
 }
 
 .logo {
     width: 100px; /* Aanpassen aan de werkelijke grootte van het logo */
     margin-right: auto; /* Duwt het logo naar links */
+    border: 0px solid #ff0000;
+    border-radius: 36px;
 }
 main {
     padding: 20px;
