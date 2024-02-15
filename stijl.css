@@ -122,7 +122,7 @@ form button:hover, form input[type="submit"]:hover{
     vertical-align: top;
     margin: 10px;
     padding: 10px;
-    border: 1px solid #ff0000;
+    border: 1px solid #44b17b;
     border-radius: 8px;
     text-align: center;
     width: 250px; /* Breedte van elk productblok */
