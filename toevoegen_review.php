@@ -11,7 +11,7 @@
 <?php include 'header.php'; ?>
 
 <div class="toevoegen-formulier">
-    <h2 class='toevoegen'>Review Toevoegen</h2>
+    <h2 class='toevoegen'> Schrijf een Review </h2>
     <form action="toevoegen_review_update.php" method="post">
         <label for="rating">Rating:</label>
         <input type="number" id="rating" name="rating" min="1" max="10" required><br><br>
