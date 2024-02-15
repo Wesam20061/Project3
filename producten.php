@@ -17,7 +17,7 @@ try{
     $query = $db->prepare("SELECT * FROM `producten`;");
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    echo "<a class='toevoegen' href='toevoegen_product.php'>" . "Toevoegen klant</a>";
+    echo "<a class='toevoegen' href='toevoegen_product.php'>" . "Product Toevoegen</a>";
 
     foreach($result as $data){
         echo "<div class='product'>";
