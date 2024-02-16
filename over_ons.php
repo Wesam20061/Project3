@@ -10,6 +10,7 @@
 <body>
 <?php include 'header.php'; ?>
 
+
 <div class="over">
     <h1>Over Ons</h1>
     <p>Top Scoot staat bekend als dé expert op het gebied van scooters. Wij bieden een

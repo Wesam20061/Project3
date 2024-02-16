@@ -12,6 +12,7 @@
 
 <?php
 
+
 try {
     $db = new PDO("mysql:host=localhost;dbname=webshop top scoot;", "root", "");
     $query = $db->prepare("SELECT * FROM `review`;");

@@ -23,6 +23,7 @@
         <label for="bericht">Uw bericht:</label>
         <textarea id="bericht" name="bericht" required></textarea>
         <button type="submit">Bericht versturen</button>
+        
     </form>
 </main>
 

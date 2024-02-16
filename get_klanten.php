@@ -8,3 +8,4 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 // Geef de resultaten terug als JSON
 echo json_encode($result);
 ?>
+

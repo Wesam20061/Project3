@@ -26,6 +26,7 @@ try{
         echo "<a class='wijzig' href='wijzig_bestellingen.php?id=" . $data['BestellingID'] . "'>" . "wijzig</a>";
         echo "<a class='verwijderen' href='verwijderen_bestellingen.php?id=" . $data['BestellingID'] . "'>" . "verwijderen</a>";
         echo "</div>";
+        
     }
 }
 

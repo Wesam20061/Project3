@@ -39,6 +39,7 @@ window.addEventListener('scroll', function() {
 
 
 
+
 document.getElementById("zoekFormulier").addEventListener("submit", function(event) {
     event.preventDefault(); // Voorkom standaardformulierinzending
 
