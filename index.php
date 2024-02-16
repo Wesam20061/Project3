@@ -12,23 +12,13 @@
 </head>
 <body>
 <?php include 'header.php'; ?>
-
 <div class="box">
 <div class="home">
 <h1>Welkom bij Top Scoot</h1>
     <p>jouw ultieme bestemming voor hoogwaardige scooters en accessoires! <br> Ontdek de vrijheid van de weg met ons uitgebreide assortiment en vind de perfecte scooter voor jouw avonturen</p>
     <a href="producten.php">Bekijk onze Producten</a>
-
 </div>
 </div>
-
-
-
-    
-
-
-
-
 
 
 <?php include 'footer.php'; ?>
