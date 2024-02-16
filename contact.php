@@ -12,6 +12,7 @@
 
 
 
+
 <main>
     <h1>Contact</h1>
     <p>Heeft u vragen? Neem gerust contact met ons op via het onderstaande formulier.</p>
@@ -23,7 +24,7 @@
         <label for="bericht">Uw bericht:</label>
         <textarea id="bericht" name="bericht" required></textarea>
         <button type="submit">Bericht versturen</button>
-        
+
     </form>
 </main>
 
