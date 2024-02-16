@@ -261,12 +261,12 @@ tr:hover {
     margin: 20px 20%
 }
 .box{
-    height: 57vh;
+    height: 60vh;
     background-image: url(https://www.scooterkoning.com/wp-content/uploads/2023/02/banner-beter.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding-top: 60px;
+    padding-top: 20px;
     width: 100%;
     overflow-y: auto;
    
@@ -305,6 +305,10 @@ tr:hover {
     margin: 0 auto;
     }
 
+    .inlog{
+        text-align: center;
+        margin-top: 200px;
+    }
     
     
 

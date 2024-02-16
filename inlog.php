@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h2>Inloggen</h2>
+        <h2 class="inlog" >Inloggen</h2>
         <form id="loginForm">
             <div class="form-group">
                 <label for="username">Gebruikersnaam:</label>

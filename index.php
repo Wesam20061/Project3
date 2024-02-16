@@ -12,6 +12,7 @@
 </head>
 <body>
 <?php include 'header.php'; ?>
+
 <div class="box">
 <div class="home">
 <h1>Welkom bij Top Scoot</h1>

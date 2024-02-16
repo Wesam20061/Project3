@@ -14,7 +14,7 @@
             <a href="#" class="dropbtn">Menu</a>
             <div class="dropdown-content">
                 <a href="producten.php">Producten</a>
-                <a href="klanten.php">Klanten</a>
+                <a href="inlog.php">Klanten</a>
                 <a href="bestellingen.php">Bestellingen</a>
                 <a href="over_ons.php">Over ons</a>
             </div>
