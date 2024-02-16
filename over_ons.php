@@ -29,6 +29,7 @@ scooter die stijl en efficiëntie combineert, dan is Top Scoot uw ideale startpu
 
 
 
+
 <?php include 'footer.php'; ?>
 </body>
 </html>
