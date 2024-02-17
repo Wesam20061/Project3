@@ -7,16 +7,21 @@
     <link rel="stylesheet" href="stijl.css">
 </head>
 <body>
+<?php
+include('header.php');
+
+include('footer.php');
+?>
     <div class="login-container">
         <h2 class="inlog" >Inloggen</h2>
         <form id="loginForm">
             <div class="form-group">
                 <label for="username">Gebruikersnaam:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" required  placeholder='admin'>
             </div>
             <div class="form-group">
                 <label for="password">Wachtwoord:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required placeholder='klant'>
             </div>
             <button type="submit">Inloggen</button>
         </form>
@@ -36,6 +41,9 @@
         alert("Ongeldige inloggegevens. Probeer opnieuw.");
     }
 });
+</script>
+
+
 </script>
 </body>
 </html>

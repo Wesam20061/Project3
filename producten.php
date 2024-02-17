@@ -13,6 +13,8 @@
 include('header.php');
 
 
+session_start();
+
 try {
     $db = new PDO("mysql:host=localhost;dbname=webshop top scoot", "root", "");
     $query = $db->prepare("SELECT * FROM `producten`;");
@@ -31,6 +33,7 @@ try {
         echo "<h1>" . htmlspecialchars($data['Naam']) .  "</h1>";
         echo "<h2 class='Beschrijving'>" . htmlspecialchars($data['Beschrijving']) . "</h2>";
         echo "<h1> €" . htmlspecialchars($data['Prijs']) . "</h1>";
+        echo "<a class='wijzig' href='toevoegen_winkelwagen.php?id=" . $data['ProductID'] . "'>" . "toevoegen aan winkelwagen</a>";
         echo "<a class='wijzig' href='wijzig_producten.php?id=" . $data['ProductID'] . "'>" . "wijzig</a>";
         echo "<a class='verwijderen' href='verwijderen_product.php?id=" . $data['ProductID'] . "'>" . "verwijderen</a>";
         echo "</div>";
@@ -38,6 +41,8 @@ try {
 } catch (PDOException $e) {
     die("Error!: " . $e->getMessage());
 }
+
+
 include('footer.php');
 
 

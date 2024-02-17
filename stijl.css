@@ -307,14 +307,14 @@ tr:hover {
 
     .inlog{
         text-align: center;
-        margin-top: 200px;
+        margin-top: 110px;
     }
     
     
 
 
 
-    @media only screen and (max-width: 668px) {
+    @media only screen and (max-width: 800px) {
         .dropdown {
             position: relative;
             display: inline-block;

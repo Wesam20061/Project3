@@ -7,7 +7,9 @@
                 <li><a href="producten.php">Producten</a></li>
                 <li><a href="inlog.php">klanten</a></li>
                 <li><a href="bestellingen.php">Bestellingen</a></li>
+                <li><a href="winkelwagen.php">winkelwagen</a></li>
                 <li><a href="over_ons.php">Over ons</a></li>
+            
                 
                 
         <li class="dropdown">
@@ -16,6 +18,7 @@
                 <a href="producten.php">Producten</a>
                 <a href="inlog.php">Klanten</a>
                 <a href="bestellingen.php">Bestellingen</a>
+                <a href="winkelwagen.php">Winkelwagen</a>
                 <a href="over_ons.php">Over ons</a>
             </div>
         </li>
