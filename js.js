@@ -132,8 +132,7 @@ document.getElementById("zoekFormulier").addEventListener("submit", function(eve
     }
 
     
-    // Laad de pagina opnieuw
-
+    
     
 });
 

@@ -11,7 +11,7 @@
 <?php include('header.php'); ?>
 
 <div class="toevoegen-formulier">
-    <h2 class='toevoegen'>Klant Toevoegen</h2>
+    <h2 class='toevoegen'>vul het formulier in </h2>
     <form action="toevoegen_klant_update.php" method="post">
         <label for="naam">Naam:</label>
         <input type="text" id="naam" name="naam" required><br><br>

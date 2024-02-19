@@ -43,7 +43,7 @@ if(isset($_SESSION['winkelwagen']) && !empty($_SESSION['winkelwagen'])) {
         $_SESSION['success_message'] = "Producten succesvol besteld!";
 
         // Doorsturen naar de index pagina
-        header("Location: index.php");
+        header("Location: toevoegen_klant.php");
         exit();
     } catch(PDOException $e) {
         // Rollback de transactie bij een fout

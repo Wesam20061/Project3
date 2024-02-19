@@ -15,7 +15,7 @@ try {
     
     $query->execute();
     
-    header("Location: klanten.php"); // Redirect to your klanten.php page after adding the customer
+    header("Location: index.php");
     exit();
 } catch(PDOException $e) {
     die("Error!: " . $e->getMessage());
