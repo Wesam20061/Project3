@@ -13,7 +13,7 @@
 include('header.php');
 
 
-session_start();
+
 
 try {
     $db = new PDO("mysql:host=localhost;dbname=webshop top scoot", "root", "");

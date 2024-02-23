@@ -1,3 +1,13 @@
+
+
+<link rel="stylesheet" href="stijl.css">
+
+<?php
+session_start();
+$aantalProductenInWinkelwagen = isset($_SESSION['winkelwagen']) ? count($_SESSION['winkelwagen']) : 0;// Controleer of de winkelwagen sessie bestaat en of er producten zijn toegevoegd
+
+?>
+
 <header>
 <a href="index.php"> <img src="logo.jpg" alt="Scooter Webshop Logo" class="logo"></a>        
     <nav>
@@ -22,7 +32,7 @@
             </div>
         </li>
         <a href="winkelwagen.php"> <img src="winkelwagen.png" class="winkel"></a>
-
+        <p class="aantal-producten-winkelwagen"><?php echo $aantalProductenInWinkelwagen; ?></p>
                 
             </ul>
             

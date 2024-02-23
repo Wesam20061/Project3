@@ -12,18 +12,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scooter Webshop</title>
-    <link rel="stylesheet" href="stijl.css">
+    <link rel="stylesheet" href="s.css">
     
 </head>
 <body>
+    
 
 <?php
 include('header.php');
 
 
-session_start();
 
-// Controleer of de winkelwagen sessie bestaat en of er producten zijn toegevoegd
+
+
+$aantalProductenInWinkelwagen = isset($_SESSION['winkelwagen']) ? count($_SESSION['winkelwagen']) : 0;// Controleer of de winkelwagen sessie bestaat en of er producten zijn toegevoegd
 if(isset($_SESSION['winkelwagen']) && !empty($_SESSION['winkelwagen'])) {
     // Verbinding maken met de database
     try {
@@ -70,11 +72,11 @@ if(isset($_SESSION['winkelwagen']) && !empty($_SESSION['winkelwagen'])) {
     echo "<p>Uw winkelwagen is leeg.</p>";
 }
 
-
 include('footer.php');
 
 
 ?>
+
 <script src="js.js"></script>
 </body>
 </html>
@@ -82,5 +84,3 @@ include('footer.php');
 
 
 
-</body>
-</html>

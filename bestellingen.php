@@ -14,7 +14,7 @@
 include('header.php');
 
 
-session_start();
+
 
 // Zoekopdracht verwerken
 if(isset($_GET['zoek'])) {

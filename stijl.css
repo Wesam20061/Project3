@@ -89,7 +89,12 @@ nav ul li a:hover {
 .winkel {
     width: 50px; /* Aanpassen aan de werkelijke grootte van het winkelwagenpictogram */
     margin-top: 10px;
-    margin-right: 10px; /* Ruimte tussen het pictogram en de rest van de navigatie */
+    margin-right: -12px; /* Ruimte tussen het pictogram en de rest van de navigatie */
+}
+.aantal-producten-winkelwagen {
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 
