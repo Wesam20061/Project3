@@ -35,7 +35,7 @@ if(isset($_SESSION['winkelwagen']) && !empty($_SESSION['winkelwagen'])) {
         // Voorbereiden van de query om productdetails op te halen
         $query = $db->prepare("SELECT * FROM producten WHERE ProductID = :productID");
 
-        echo "<h1>Winkelwagen</h1>";
+        echo "<h1 class='wijzig' >Winkelwagen</h1>";
         echo "<ul>";
 
         // Voor elk product in de winkelwagen
