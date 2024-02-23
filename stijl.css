@@ -56,13 +56,16 @@ nav ul li a:hover {
     position: relative;
     display: inline-block;
     display: none;
+    margin-right: 58px;
+
+
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 90px;
     z-index: 1;
 }
 
@@ -83,6 +86,13 @@ nav ul li a:hover {
     border: 0px solid #ff0000;
     border-radius: 36px;
 }
+.winkel {
+    width: 50px; /* Aanpassen aan de werkelijke grootte van het winkelwagenpictogram */
+    margin-top: 10px;
+    margin-right: 10px; /* Ruimte tussen het pictogram en de rest van de navigatie */
+}
+
+
 main {
     padding: 20px;
 }
