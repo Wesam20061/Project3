@@ -83,7 +83,7 @@ nav ul li a:hover {
 .logo {
     width: 100px; /* Aanpassen aan de werkelijke grootte van het logo */
     margin-right: auto; /* Duwt het logo naar links */
-    border: 0px solid #ff0000;
+    border: 0px solid ;
     border-radius: 36px;
 }
 .winkel {
