@@ -3,27 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scooter Webshop</title>
-    <link rel="stylesheet" href="s.css">
-    
+    <link rel="stylesheet" href="stijl.css">
 </head>
 <body>
     
-
 <?php
 include('header.php');
-
-
-
-
 
 $aantalProductenInWinkelwagen = isset($_SESSION['winkelwagen']) ? count($_SESSION['winkelwagen']) : 0;// Controleer of de winkelwagen sessie bestaat en of er producten zijn toegevoegd
 if(isset($_SESSION['winkelwagen']) && !empty($_SESSION['winkelwagen'])) {
@@ -35,7 +21,7 @@ if(isset($_SESSION['winkelwagen']) && !empty($_SESSION['winkelwagen'])) {
         // Voorbereiden van de query om productdetails op te halen
         $query = $db->prepare("SELECT * FROM producten WHERE ProductID = :productID");
 
-        echo "<h1 class='wijzig' >Winkelwagen</h1>";
+        echo "<h1 class='wijzig'>Winkelwagen</h1>";
         echo "<ul>";
 
         // Voor elk product in de winkelwagen
@@ -52,14 +38,29 @@ if(isset($_SESSION['winkelwagen']) && !empty($_SESSION['winkelwagen'])) {
             echo "<h2 class='Beschrijving'>" . htmlspecialchars($product['Beschrijving']) . "</h2>";
             echo "<h1> €" . htmlspecialchars($product['Prijs']) . "</h1>";
             echo "<a class='verwijderen' href='verwijderen_winkelwagen.php?id=" . $product['ProductID'] . "'>" . "verwijderen uit winkelwagen</a>";
-            //voeg een bestel knop toe
+            // Geef een checkbox weer om het product te selecteren voor bestelling
+            echo "<input type='checkbox' name='producten[]' value='" . $product['ProductID'] . "' />";
             echo "</div>";
         }
 
         echo "</ul>";
 
-        echo "<form action='bestel.php' method='GET'>";
-        echo "<input type='hidden' name='id' value='" . $product['ProductID'] . "'>";
+        // Laat de klant-ID zien en laat de gebruiker deze selecteren
+        echo "<form action='bestel.php' method='POST'>";
+        echo "<label for='klantID'>Kies klant ID:</label>";
+        echo "<select name='klantID'>";
+        
+        // Haal klantgegevens op uit de database en voeg deze toe aan het dropdown-menu
+        $klantQuery = $db->query("SELECT KlantID, Naam FROM klanten");
+        while ($klant = $klantQuery->fetch(PDO::FETCH_ASSOC)) {
+            echo "<option value='" . $klant['KlantID'] . "'>" . $klant['KlantID'] . " - " . $klant['Naam'] . "</option>";
+        }
+        
+        echo "</select>";
+        
+        // Voeg een verborgen veld toe met product-ID's om naar de verwerkingspagina te verzenden
+        echo "<input type='hidden' name='productIDs' value='" . implode(",", $_SESSION['winkelwagen']) . "' />";
+        
         echo "<button type='submit' class='bestel'>bestellen</button>";
         echo "</form>";
 
@@ -72,15 +73,10 @@ if(isset($_SESSION['winkelwagen']) && !empty($_SESSION['winkelwagen'])) {
     echo "<p>Uw winkelwagen is leeg.</p>";
 }
 
+
 include('footer.php');
-
-
 ?>
 
 <script src="js.js"></script>
 </body>
 </html>
-
-
-
-

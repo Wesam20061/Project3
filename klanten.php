@@ -8,7 +8,6 @@
    
 </head>
 <body>
-
 <?php
 
 
@@ -29,6 +28,7 @@ try {
     foreach ($result as $data) {
         echo "<div class='product'>";
         echo "<h1 id='klant_" . htmlspecialchars($data['Naam']) . "'>" . htmlspecialchars($data['Naam']) .  "</h1>";
+        echo "<h2>Klant ID: " . htmlspecialchars($data['KlantID']) . "</h2>"; // Toevoeging van Klant ID
         echo "<h2>" . htmlspecialchars($data['Email']) . "</h2>";
         echo "<h1>" . htmlspecialchars($data['Telefoonnummer']) . "</h1>";
         echo "<h1>adres: " . htmlspecialchars($data['Adres']) . "</h1>";
