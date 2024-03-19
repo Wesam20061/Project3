@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scooter Webshop</title>
+    <title>Scooter Webshop - Bestellingen Overzicht</title>
     <link rel="stylesheet" href="stijl.css">
-    <script src="js.js"></script>
 </head>
 <body>
 
@@ -14,45 +13,55 @@ include('header.php');
 
 try {
     $db = new PDO("mysql:host=localhost;dbname=webshop top scoot", "root", "");
-    
-    $query = $db->prepare("SELECT * FROM bestellingen");
-    $query->execute();
-    $bestellingen = $query->fetchAll(PDO::FETCH_ASSOC);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "<div class='bestellingen'>";
-    foreach($bestellingen as $bestelling){
-        echo "<div class='product'>";
-        echo "<h2>Bestelling ID: " . htmlspecialchars($bestelling['BestellingID']) . "</h2>";
-        echo "<h1>Product ID: " . htmlspecialchars($bestelling['productID']) . "</h1>";
-        
-        // Haal productgegevens op uit de tabel producten
-        $productQuery = $db->prepare("SELECT * FROM producten WHERE ProductID = :productID");
-        $productQuery->bindParam(':productID', $bestelling['productID']);
-        $productQuery->execute();
-        $product = $productQuery->fetch(PDO::FETCH_ASSOC);
+    // Ophalen van alle bestellingen
+    $bestellingenQuery = $db->query("SELECT BestellingID, KlantID, BestelDatum FROM bestellingen ORDER BY BestelDatum DESC");
+    $bestellingen = $bestellingenQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        echo "<h1>Product Naam: " . htmlspecialchars($product['Naam']) . "</h1>";
-        echo "<img src='" . htmlspecialchars($product['AfbeeldingURL']) . "' alt='" . htmlspecialchars($product['Naam']) . "' />";
-        
-        echo "<h3>Klant ID: " . htmlspecialchars($bestelling['klantID']) . "</h3>";
-        echo "<h4>BestelDatum: " . htmlspecialchars($bestelling['BestelDatum']) .  "</h4>";
-        echo "<h5>Prijs per stuk: €" . htmlspecialchars($product['Prijs']) . "</h5>";
-        echo "<h6>Aantal: " . htmlspecialchars($bestelling['aantal']) . "</h6>";
-        echo "<h6>Totaal prijs: €" . htmlspecialchars($product['Prijs'] * $bestelling['aantal']) . "</h6>";
+    if ($bestellingen) {
+        foreach ($bestellingen as $bestelling) {
+            
+            echo "<div class='producten'>";
+            echo "<h2>Bestelling ID: " . htmlspecialchars($bestelling['BestellingID']) . " - Klant ID: " . htmlspecialchars($bestelling['KlantID']) . "</h2>";
+            echo "<p>BestelDatum: " . htmlspecialchars($bestelling['BestelDatum']) . "</p>";
+            echo "<ul>";
 
-        // Verwijderknop toevoegen met link naar verwijderen_bestelling.php
-        echo "<a class='verwijderen' href='verwijderen_bestelling.php?id=" . $bestelling['BestellingID'] . "'>Verwijderen</a>";
+            $totaalPrijsBestelling = 0;
 
-        echo "</div>";
+            // Ophalen van producten voor deze bestelling
+            $productenQuery = $db->prepare("SELECT p.Naam, p.AfbeeldingURL, bp.Aantal, bp.PrijsPerStuk FROM bestelling_producten bp JOIN producten p ON bp.ProductID = p.ProductID WHERE bp.BestellingID = :bestellingID");
+            $productenQuery->execute([':bestellingID' => $bestelling['BestellingID']]);
+            $producten = $productenQuery->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($producten as $product) {
+                $totaalPrijsProduct = $product['PrijsPerStuk'] * $product['Aantal'];
+                $totaalPrijsBestelling += $totaalPrijsProduct;
+                echo "<li><img src='" . htmlspecialchars($product['AfbeeldingURL']) . "' alt='" . htmlspecialchars($product['Naam']) . "' style='width:100px;'> " . htmlspecialchars($product['Naam']) . " - Aantal: " . htmlspecialchars($product['Aantal']) . " - Prijs per stuk: €" . htmlspecialchars($product['PrijsPerStuk']) . " - Totaal: €" . htmlspecialchars($totaalPrijsProduct) . "</li>";
+            }
+            // Binnen de foreach loop van elke bestelling
+
+            
+            echo "<p>Totale prijs van bestelling: €" . htmlspecialchars($totaalPrijsBestelling) . "</p>";
+            echo "</ul>";
+
+            // Binnen de foreach loop van elke bestelling
+            echo "<form action='verwijder_bestelling.php' method='post'>";
+            echo "<input type='hidden' name='bestellingID' value='" . $bestelling['BestellingID'] . "'>";
+            echo "<button type='submit' onclick=\"return confirm('Weet je zeker dat je deze bestelling wilt verwijderen?');\">Verwijderen</button>";
+            echo "</form>";
+            echo "</div>";
+
+        }
+    } else {
+        echo "<p>Er zijn geen bestellingen geplaatst.</p>";
     }
-    echo "</div>";
 
 } catch(PDOException $e) {
-    die("Fout!: " . $e->getMessage());
+    die("Fout bij het ophalen van de bestellingen: " . $e->getMessage());
 }
 
 include('footer.php');
 ?>
-
 </body>
 </html>
