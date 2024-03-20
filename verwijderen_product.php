@@ -1,7 +1,5 @@
 <?php
 
-// auteur : ahmad
-// funtie: data fiets verwijderen uit databese
 
 try {
     $conn = new PDO("mysql:host=localhost;dbname=webshop top scoot", "root", "");
