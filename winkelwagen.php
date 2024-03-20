@@ -27,9 +27,10 @@ if(isset($_SESSION['winkelwagen']) && count($_SESSION['winkelwagen']) > 0) {
         $product = $query->fetch(PDO::FETCH_ASSOC);
 
         // Toon productdetails
+        echo "<div class='bestelling'>";
         echo "<li class='product-item'>";
         echo "<img src='" . htmlspecialchars($product['AfbeeldingURL']) . "' alt='" . htmlspecialchars($product['Naam']) . "' />";
-        echo "<div>" . htmlspecialchars($product['Naam']) . " - €" . htmlspecialchars($product['Prijs']) . "</div>";
+        echo "<div>" . htmlspecialchars($product['Naam']) . " <br> €" . htmlspecialchars($product['Prijs']) . "</div>";
         echo "</li>";
     }
 
@@ -43,6 +44,7 @@ if(isset($_SESSION['winkelwagen']) && count($_SESSION['winkelwagen']) > 0) {
         echo "<option value='" . $klant['KlantID'] . "'>" . $klant['Naam'] . "</option>";
     }
     echo "</select>";
+    echo "</div>";
 
     echo "<button type='submit' class='bestelknop'>Bestellen</button>";
     echo "</form>";

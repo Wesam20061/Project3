@@ -14,14 +14,25 @@ include('header.php');
 
 try {
     $db = new PDO("mysql:host=localhost;dbname=webshop top scoot;", "root", "");
-    $query = $db->prepare("SELECT * FROM `klanten`;");
-    $query->execute();
+
+    // Zoekfunctionaliteit
+    if(isset($_GET['zoekterm'])) {
+        $zoekterm = $_GET['zoekterm'];
+        // Query om klanten te zoeken op klantID, naam, e-mail, telefoonnummer of adres
+        $query = $db->prepare("SELECT * FROM `klanten` WHERE KlantID LIKE :zoekterm OR Naam LIKE :zoekterm OR Email LIKE :zoekterm OR Telefoonnummer LIKE :zoekterm OR Adres LIKE :zoekterm");
+        $query->execute([':zoekterm' => "%$zoekterm%"]);
+    } else {
+        // Als er geen zoekopdracht is, haal alle klanten op
+        $query = $db->prepare("SELECT * FROM `klanten`");
+        $query->execute();
+    }
+
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     echo "<a class='toevoegen' href='toevoegen_klant.php'>" . " Klant Toevoegen</a>";
-    echo "<form id='zoekFormulier'>
-        <input type='text' id='zoekInput' placeholder='Zoek op naam, e-mail, telefoonnummer of adres'>
-        <button type='submit'>Zoeken</button>
-    </form>";
+    echo "<form id='zoekFormulier' method='get'>
+            <input type='text' id='zoekInput' name='zoekterm' placeholder='Zoek op klantid, naam, e-mail, telefoonnummer of adres'>
+            <button type='submit'>Zoeken</button>
+          </form>";
 
     foreach ($result as $data) {
         echo "<div class='product'>";

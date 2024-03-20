@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scooter Webshop</title>
     <link rel="stylesheet" href="style.css">
-    
+    <script src="js.js"></script>
+
 </head>
 <body>
 
 <?php
 include('header.php');
-
-
-
 
 try {
     $db = new PDO("mysql:host=localhost;dbname=webshop top scoot", "root", "");
@@ -22,10 +20,18 @@ try {
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
     echo "<a class='toevoegen' href='toevoegen_product.php'>" . "Product Toevoegen</a>";
-    echo "<form id='zoekFormulier'>
-            <input type='text' id='zoek' placeholder='Zoek op naam, beschrijving'>
-            <button type='submit'>Zoeken</button>
-          </form>";
+    echo "<form id='zoekFormulier' method='get'>";
+    echo "<input type='text' id='zoek' name='zoekterm' placeholder='Zoek op naam, beschrijving'>";
+    echo "<button type='submit'>Zoeken</button>";
+    echo "</form>";
+
+    if(isset($_GET['zoekterm'])) {
+        $zoekterm = $_GET['zoekterm'];
+        // Voeg de zoekterm toe aan de SQL-query om te zoeken op naam en beschrijving
+        $query = $db->prepare("SELECT * FROM `producten` WHERE Naam LIKE :zoekterm OR Beschrijving LIKE :zoekterm");
+        $query->execute([':zoekterm' => "%$zoekterm%"]);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     foreach ($result as $data) {
         echo "<div class='product'>";
@@ -42,12 +48,8 @@ try {
     die("Error!: " . $e->getMessage());
 }
 
-
 include('footer.php');
-
-
 ?>
-<script src="js.js"></script>
 </body>
 </html>
 
