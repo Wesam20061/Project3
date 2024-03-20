@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scooter Webshop</title>
     <link rel="stylesheet" href="style.css">
-   
+    <script src="js.js"></script>
 </head>
 <body>
 <?php
-
-
 
 include('header.php');
 
@@ -43,6 +41,5 @@ try {
     
 include('footer.php');
 ?>
- <script src="js.js"></script>
 </body>
 </html>
