@@ -11,18 +11,17 @@
     <script src="js.js"></script>
 </head>
 <body>
-<?php include 'header.php'; ?>
+<?php include 'header.php'; ?> <!-- Inclusief header-bestand -->
 
 <div class="box">
 <div class="home">
-<h1>Welkom bij Top Scoot</h1>
-    <p>jouw ultieme bestemming voor hoogwaardige scooters en accessoires! <br> Ontdek de vrijheid van de weg met ons uitgebreide assortiment en vind de perfecte scooter voor jouw avonturen</p>
-    <a href="producten.php">Bekijk onze Producten</a>
+<h1>Welkom bij Top Scoot</h1> <!-- Hoofdtekst van de startpagina -->
+    <p>jouw ultieme bestemming voor hoogwaardige scooters en accessoires! <br> Ontdek de vrijheid van de weg met ons uitgebreide assortiment en vind de perfecte scooter voor jouw avonturen</p> <!-- Korte introductietekst -->
+    <a href="producten.php">Bekijk onze Producten</a> <!-- Koppeling naar productpagina -->
 </div>
 </div>
 
-
-<?php include 'footer.php'; ?>
+<?php include 'footer.php'; ?> <!-- Inclusief footer-bestand -->
 
 </body>
 </html>

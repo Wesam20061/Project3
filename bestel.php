@@ -1,12 +1,13 @@
 <?php
-session_start();
+session_start(); // Start de sessie
 
+// Controleer of het een POST-verzoek is en of klantID is ingesteld en of de winkelwagen niet leeg is
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['klantID']) && !empty($_SESSION['winkelwagen'])) {
-    $klantID = $_POST['klantID'];
+    $klantID = $_POST['klantID']; // Haal klantID op van het formulier
 
     try {
-        $db = new PDO("mysql:host=localhost;dbname=webshop top scoot", "root", "");
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $db = new PDO("mysql:host=localhost;dbname=webshop top scoot", "root", ""); // Verbinding maken met de database
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Zet foutmodus op ERRMODE_EXCEPTION
 
         // Start een database transactie
         $db->beginTransaction();
@@ -14,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['klantID']) && !empty($
         // Maak een nieuwe bestelling aan
         $bestellingQuery = $db->prepare("INSERT INTO bestellingen (klantID, BestelDatum) VALUES (:klantID, NOW())");
         $bestellingQuery->execute([':klantID' => $klantID]);
-        $bestellingID = $db->lastInsertId();
+        $bestellingID = $db->lastInsertId(); // Haal het ID van de laatst ingevoegde rij op
 
         // Voorbereiden van de query om product details op te halen
         $productDetailsQuery = $db->prepare("SELECT Prijs FROM producten WHERE ProductID = :productID");
@@ -51,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['klantID']) && !empty($
         die("Error!: " . $e->getMessage());
     }
 } else {
+    // Als er geen geldige POST-verzoek is, stuur de gebruiker terug naar de winkelwagenpagina
     header("Location: winkelwagen.php");
     exit();
 }
