@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inloggen</title>
     <link rel="stylesheet" href="style.css">
+    <script src="js.js"></script>
 </head>
 <body>
-<?php
-include('header.php');
+    <?php
+        include('header.php');
 
-include('footer.php');
-?>
+        include('footer.php');
+    ?>
     <div class="login-container">
         <h2 class="inlog" >Inloggen</h2>
         <form id="loginForm">
@@ -21,29 +22,27 @@ include('footer.php');
             </div>
             <div class="form-group">
                 <label for="password">Wachtwoord:</label>
-                <input type="password" id="password" name="password" required placeholder='klant'>
+                <input type="password" id="password" name="password" required placeholder='123'>
             </div>
             <button type="submit">Inloggen</button>
         </form>
     </div>
-    <script>document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Voorkom standaardformulierinzending
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Voorkom standaardformulierinzending
 
-    // Haal gebruikersnaam en wachtwoord op
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+            // Haal gebruikersnaam en wachtwoord op
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
 
-    // Simpele inlogvalidatie (vervang dit met je eigen validatielogica)
-    if (username === "admin" && password === "klant") {
-        // Redirect naar de andere pagina als inloggegevens correct zijn
-        window.location.href = "klanten.php";
-    } else {
-        alert("Ongeldige inloggegevens. Probeer opnieuw.");
-    }
-});
-</script>
-
-
-</script>
+            // Simpele inlogvalidatie (vervang dit met je eigen validatielogica)
+            if (username === "admin" && password === "123") {
+                // Redirect naar de andere pagina als inloggegevens correct zijn
+                window.location.href = "klanten.php";
+            } else {
+                alert("Ongeldige inloggegevens. Probeer opnieuw.");
+            }
+        });
+    </script>
 </body>
 </html>

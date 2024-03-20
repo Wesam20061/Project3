@@ -1,4 +1,4 @@
-
+/* Algemene opmaak van de pagina */
 body, html {
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@ body, html {
     flex-wrap: wrap;
 }
 
-
+/* Opmaak van de header */
 header {
     color: #fff;
     padding: 20px;
@@ -17,18 +17,16 @@ header {
     justify-content: space-between;
     align-items: center;
     background-image: linear-gradient(to left, #44b17b, #a6ddbf);
-    height: 80px; /* Aanpassen aan de gewenste hoogte van de header */
-    transition: 2s; /* Overgangseffect van 2 seconden voor de achtergrondkleur */
-    
+    height: 80px; 
+    transition: 2s; 
 }
 
+/* Opmaak van de header bij hover */
 header:hover {
-    background-image: linear-gradient(to left, #a6ddbf, #44b17b); /* Omgekeerde kleurverloop bij hover */
-    
+    background-image: linear-gradient(to left, #a6ddbf, #44b17b); 
 }
 
-
-
+/* Opmaak van de navigatie */
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -48,17 +46,18 @@ nav ul li a {
     text-decoration: none;
 }
 
+/* Opmaak van de linkjes in de navigatie bij hover */
 nav ul li a:hover {
     text-decoration: underline;
     color: #44b17b;
 }
+
+/* Opmaak van dropdown-menu */
 .dropdown {
     position: relative;
     display: inline-block;
     display: none;
     margin-right: 58px;
-
-
 }
 
 .dropdown-content {
@@ -80,30 +79,38 @@ nav ul li a:hover {
     display: block;
 }
 
+/* Opmaak van het logo */
 .logo {
-    width: 100px; /* Aanpassen aan de werkelijke grootte van het logo */
-    margin-right: auto; /* Duwt het logo naar links */
+    width: 100px; 
+    margin-right: auto; 
     border: 0px solid ;
     border-radius: 36px;
 }
 
+/* Opmaak van het winkelwagentje */
 .winkel {
-    width: 50px; /* Aanpassen aan de werkelijke grootte van het winkelwagenpictogram */
+    width: 50px;
     margin-top: 10px;
     margin-left: -10px;
-    margin-right: -12px; /* Ruimte tussen het pictogram en de rest van de navigatie */
+    margin-right: -12px; 
 }
+
+/* Opmaak van het aantal producten in de winkelwagen */
 .aantal-producten-winkelwagen {
     margin-right: 10px;
     font-size: 13px;
     font-weight: bold;
 }
 
-
+/* Opmaak van de hoofdinhoud van de pagina */
 main {
     padding: 20px;
 }
+.footer{
+    margin-top: 100px;
+}
 
+/* Opmaak van de footer */
 footer {
     background-color: #333;
     color: white;
@@ -128,17 +135,16 @@ footer a {
     margin: 0 10px;
 }
 
+/* Opmaak van de footer linkjes bij hover */
 footer a:hover {
     text-decoration: underline;
     color: #44b17b;
 }
-.footer{
-    margin-top: 100px;
-}
+
+/* Opmaak van de formulieren */
 form {
     max-width: 500px;
     margin: 20px auto;
-    
 }
 
 form label {
@@ -151,7 +157,7 @@ form input, form textarea, form button {
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #000000;
-    box-sizing: border-box; /* Adds padding without increasing the total width or height of the element */
+    box-sizing: border-box;
 }
 
 form button, form input[type="submit"]{
@@ -160,14 +166,13 @@ form button, form input[type="submit"]{
     border: none;
     cursor: pointer;
 }
+
+/* Opmaak van de formulierknoppen bij hover */
 form button:hover, form input[type="submit"]:hover{
     background-color: #a6ddbf;
 }
 
-
-
-
-
+/* Opmaak van de producten */
 .product {
     display: inline-block;
     vertical-align: top;
@@ -221,10 +226,13 @@ form button:hover, form input[type="submit"]:hover{
     background-color: #ff0000;
 }
 
+/* Opmaak van de productlinkjes bij hover */
 .product a:hover {
     background-color: #000000;
     color: #ffffff;
 }
+
+/* Opmaak van de bestellingen */
 .bestelling{
     display: inline-block;
     vertical-align: top;
@@ -264,7 +272,10 @@ form button:hover, form input[type="submit"]:hover{
     margin-bottom: auto;
 }
 
-.bestelling button {
+
+/* Opmaak van de bestelknoppen bij hover */
+
+.bestelling button{
     background-color: #f44336;
     color: white;
     border: none;
@@ -275,9 +286,12 @@ form button:hover, form input[type="submit"]:hover{
     cursor: pointer;
     border-radius: 5px;
 }
+
 .bestelling button:hover {
     background-color: #c13529;
 }
+
+/* Opmaak van de wijzig-knoppen */
 .wijzig{
     display: flex;
     justify-content: center;
@@ -285,6 +299,7 @@ form button:hover, form input[type="submit"]:hover{
     color: #13874d;
 }
 
+/* Opmaak van de review-knoppen */
 .review {
     display: flex;
     justify-content: center;
@@ -292,10 +307,11 @@ form button:hover, form input[type="submit"]:hover{
     color: #13874d;
 }
 
+/* Opmaak van tabellen */
 table {
     width: 50%;
     border-collapse: collapse;
-    margin: 0 auto; /* Center the table */
+    margin: 0 auto;
     margin-bottom: 20px;
 }
 
@@ -313,6 +329,7 @@ tr:hover {
     background-color: #f5f5f5;
 }
 
+/* Opmaak van de toevoeg-knop */
 .toevoegen {
     display: block;
     width: 400px;
@@ -325,14 +342,18 @@ tr:hover {
     margin: 0 auto;
 }
 
+/* Opmaak van de toevoeg-knop bij hover */
 .toevoegen:hover {
     background-color: #a6ddbf;
 }
 
+/* Opmaak van de over-sectie */
 .over{
     padding: 20px;
-    margin: 20px 20%
+    margin: 20px 20%;
 }
+
+/* Opmaak van de box-sectie */
 .box{
     height: 60vh;
     background-image: url(https://www.scooterkoning.com/wp-content/uploads/2023/02/banner-beter.png);
@@ -342,32 +363,27 @@ tr:hover {
     padding-top: 20px;
     width: 100%;
     overflow-y: auto;
-   
-    
-    
 }
-.home
-    {
-        font-family: "Protest Strike", sans-serif;
-        background-color: rgba(255, 255, 255, 0.3);
-        color: rgb(14, 11, 11);
-        text-align: center;
-        padding-top: 20px;
-        font-size: 30px;
-        width: 50%;
-        margin:0 auto;
-        border-radius: 20px;
-        
 
-    }
-    .home h1{
-        font-size: 30px;
-    }
-    
+/* Opmaak van de home-sectie */
+.home {
+    font-family: "Protest Strike", sans-serif;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgb(14, 11, 11);
+    text-align: center;
+    padding-top: 20px;
+    font-size: 30px;
+    width: 50%;
+    margin:0 auto;
+    border-radius: 20px;
+}
 
+.home h1{
+    font-size: 30px;
+}
 
-    .home a {
-        display: block;
+.home a {
+    display: block;
     width: 200px;
     padding: 10px;
     background-color: #44b17b;
@@ -376,36 +392,30 @@ tr:hover {
     text-decoration: none;
     border-radius: 5px;
     margin: 0 auto;
+}
+
+/* Opmaak van de inlog-sectie */
+.inlog{
+    text-align: center;
+    margin-top: 110px;
+}
+
+/* Media query voor schermen kleiner dan 800px */
+@media only screen and (max-width: 800px) {
+    .dropdown {
+        position: relative;
+        display: inline-block;
     }
-
-    .inlog{
-        text-align: center;
-        margin-top: 110px;
+    li{
+        display: none;
     }
-    
-    
-
-
-
-    @media only screen and (max-width: 800px) {
-        .dropdown {
-            position: relative;
-            display: inline-block;
-    
-        }
-        li{
-            display: none;
-        }
-        .h{
-            display: initial;
-        }
-        .winkel {
-            width: 50px; /* Aanpassen aan de werkelijke grootte van het winkelwagenpictogram */
-            margin-top: 10px;
-            margin-left: -30px;
-            margin-right: -12px; /* Ruimte tussen het pictogram en de rest van de navigatie */
-        }
-
-
-
+    .h{
+        display: initial;
     }
+    .winkel {
+        width: 50px; 
+        margin-top: 10px;
+        margin-left: -30px;
+        margin-right: -12px;
+    }
+}

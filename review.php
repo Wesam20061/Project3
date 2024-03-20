@@ -8,42 +8,44 @@
     <script src="js.js"></script>
 </head>
 <body>
-<?php include 'header.php'; ?>
+    <?php
+        include 'header.php';
+        // Probeer de databaseverbinding tot stand te brengen
+        try {
+            // Maak verbinding met de database
+            $db = new PDO("mysql:host=localhost;dbname=webshop top scoot;", "root", "");
+            
+            // Bereid de SQL-query voor om alle reviews op te halen
+            $query = $db->prepare("SELECT * FROM `review`;");
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            
+            // Weergave van de tabel met reviews
+            echo "<table>";
+            echo "<tr>";
+            echo "<th>Rating</th>";
+            echo "<th>Comment</th>";
+            echo "<th>Datum</th>";
+            echo "</tr>";
 
-<?php
+            // Weergave van elke review in de resultaten
+            foreach($result as $data){
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($data['rating']) . "</td>";
+                echo "<td>" . htmlspecialchars($data['comment']) . "</td>";
+                echo "<td>" . htmlspecialchars($data['review_date']) . "</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
 
+            // Weergave van de knop voor het toevoegen van een review
+            echo "<a class='toevoegen' href='toevoegen_review.php'>" . "Schrijf een Review</a>";
 
-try {
-    $db = new PDO("mysql:host=localhost;dbname=webshop top scoot;", "root", "");
-    $query = $db->prepare("SELECT * FROM `review`;");
-    $query->execute();
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    
-    echo "<table>";
-    echo "<tr>";
-    echo "<th>Rating</th>";
-    echo "<th>Comment</th>";
-    echo "<th>Datum</th>";
-    echo "</tr>";
-
-    foreach($result as $data){
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($data['rating']) . "</td>";
-        echo "<td>" . htmlspecialchars($data['comment']) . "</td>";
-        echo "<td>" . htmlspecialchars($data['review_date']) . "</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-    echo "<a class='toevoegen' href='toevoegen_review.php'>" . "Schrijf een Review</a>";
-
-} catch(PDOException $e) {
-    die("Error!: " . $e->getMessage());
-}
-?>
-
-<?php include 'footer.php'; ?>
+        } catch(PDOException $e) {
+            die("Error!: " . $e->getMessage());
+        }
+        
+        include 'footer.php';
+    ?>
 </body>
 </html>
-
-
-
